@@ -1,0 +1,26 @@
+!/data/.gitkeep
+.DS_Store
+
+.idea
+
+# Ignore VS code
+.vscode
+
+# Ignore env var files
+*.env
+
+# Python stuff
+venv
+__pycache__
+*.pyc
+
+.gradle/
+
+.Rhistory
+
+#ignore all directories except docs
+
+/cpp
+/kotlin
+/tutorials
+/website
