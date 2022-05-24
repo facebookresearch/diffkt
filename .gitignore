@@ -1,0 +1,40 @@
+!/data/.gitkeep
+.DS_Store
+
+.idea
+
+# Ignore VS code
+.vscode
+
+# Ignore env var files
+*.env
+
+# Python stuff
+venv
+__pycache__
+*.pyc
+
+# Ignore notebook checkpoints
+tutorials/.ipynb_checkpoints/
+
+# Ignore docs
+docs/
+
+# Ignore gpu downloads
+cpp/gpuops/*.zip
+
+.idea/
+
+.gradle/
+
+.Rhistory
+
+# Docusaurus
+website/build
+website/node_modules
+website/.docusaurus
+website/.cache-loader
+website/static/api
+yarn-debug.log.*
+yarn-error.log.*
+npm-debug.log*

@@ -1,0 +1,23 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+.idea
+
+out
+
+# Ignore kotlin test
+.kotlintest
+
+local.properties
+
+# Ignore output from PPL for Python
+output.txt
+
+**/adoptimize.properties
+
+#ignore log files
+*.log
+

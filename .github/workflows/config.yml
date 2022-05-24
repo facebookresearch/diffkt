@@ -1,0 +1,54 @@
+name: Test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  testPublish:
+    runs-on: macos-11
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: set up jdk 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+      - name: install diffkt dependencies
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew install cmake
+          brew install onednn
+          brew install libomp
+          brew install eigen
+      - uses: actions/checkout@v2
+      - name: test ops that use DNNL
+        run: |
+          pushd cpp/ops
+          mkdir -p build && cd build
+          cmake -DCMAKE_PREFIX_PATH=$DNNL_PATH ..
+          make -j && CTEST_OUTPUT_ON_FAILURE=1 make test
+          popd
+      - name: test api
+        run: |
+          pushd kotlin
+          ./gradlew test --profile
+          popd
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: upload failed cpp test results
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cppTestResultsHtml
+          path: ./**/cpp/ops/build/test/
+      - name: upload failed api test results
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: apiTestResultsHtml
+          path: ./kotlin/api/build/reports/tests/test/

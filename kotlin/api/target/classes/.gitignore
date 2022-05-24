@@ -1,0 +1,11 @@
+# ignore generated resource files
+libops_jni.dylib
+libops_jni.so
+libdnnlops_jni.dylib
+libdnnlops_jni.so
+libeigenops_jni.dylib
+libeigenops_jni.so
+libsparseops_jni.dylib
+libsparseops_jni.so
+libgpuops_jni.dylib
+libgpuops_jni.so

@@ -1,0 +1,11 @@
+build
+*/CMakeFiles
+*/cmake_install.cmake
+*/CTestTestfile.cmake
+CMakeCache.txt
+CMakeFiles
+CTestTestfile.cmake
+cmake_install.cmake
+Makefile
+
+googletest-*
