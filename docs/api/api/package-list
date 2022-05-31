@@ -1,44 +1,5 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-$dokka.location:org.diffkt.adOptimize////PointingToDeclaration/api/org.diffkt.adOptimize/index.html
-$dokka.location:org.diffkt.adOptimize/BoxedPrimitive///PointingToDeclaration/api/org.diffkt.adOptimize/-boxed-primitive/index.html
-$dokka.location:org.diffkt.adOptimize/BoxedPrimitive/BoxedPrimitive/#kotlin.String/PointingToDeclaration/api/org.diffkt.adOptimize/-boxed-primitive/-boxed-primitive.html
-$dokka.location:org.diffkt.adOptimize/BoxedPrimitive/value/#/PointingToDeclaration/api/org.diffkt.adOptimize/-boxed-primitive/value.html
-$dokka.location:org.diffkt.adOptimize/CodeGenStack///PointingToDeclaration/api/org.diffkt.adOptimize/-code-gen-stack/index.html
-$dokka.location:org.diffkt.adOptimize/CodeGenStack/CodeGenStack/#/PointingToDeclaration/api/org.diffkt.adOptimize/-code-gen-stack/-code-gen-stack.html
-$dokka.location:org.diffkt.adOptimize/CodeGenStack/data/#/PointingToDeclaration/api/org.diffkt.adOptimize/-code-gen-stack/data.html
-$dokka.location:org.diffkt.adOptimize/CodeGenStack/notEmpty/#/PointingToDeclaration/api/org.diffkt.adOptimize/-code-gen-stack/not-empty.html
-$dokka.location:org.diffkt.adOptimize/CodeGenStack/pop/#/PointingToDeclaration/api/org.diffkt.adOptimize/-code-gen-stack/pop.html
-$dokka.location:org.diffkt.adOptimize/CodeGenStack/push/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/api/org.diffkt.adOptimize/-code-gen-stack/push.html
-$dokka.location:org.diffkt.adOptimize/CodeGenStack/top/#/PointingToDeclaration/api/org.diffkt.adOptimize/-code-gen-stack/top.html
-$dokka.location:org.diffkt.adOptimize/DTensorRoot///PointingToDeclaration/api/org.diffkt.adOptimize/-d-tensor-root/index.html
-$dokka.location:org.diffkt.adOptimize/DTensorRoot/DTensorRoot/#/PointingToDeclaration/api/org.diffkt.adOptimize/-d-tensor-root/-d-tensor-root.html
-$dokka.location:org.diffkt.adOptimize/ForwardDifferentiable///PointingToDeclaration/api/org.diffkt.adOptimize/-forward-differentiable/index.html
-$dokka.location:org.diffkt.adOptimize/ForwardDifferentiable/ForwardDifferentiable/#kotlin.String/PointingToDeclaration/api/org.diffkt.adOptimize/-forward-differentiable/-forward-differentiable.html
-$dokka.location:org.diffkt.adOptimize/ForwardDifferentiable/tangentProperty/#/PointingToDeclaration/api/org.diffkt.adOptimize/-forward-differentiable/tangent-property.html
-$dokka.location:org.diffkt.adOptimize/PrimalAndPullback///PointingToDeclaration/api/org.diffkt.adOptimize/-primal-and-pullback/index.html
-$dokka.location:org.diffkt.adOptimize/PrimalAndPullback/PrimalAndPullback/#/PointingToDeclaration/api/org.diffkt.adOptimize/-primal-and-pullback/-primal-and-pullback.html
-$dokka.location:org.diffkt.adOptimize/ReverseDifferentiable///PointingToDeclaration/api/org.diffkt.adOptimize/-reverse-differentiable/index.html
-$dokka.location:org.diffkt.adOptimize/ReverseDifferentiable/ReverseDifferentiable/#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/api/org.diffkt.adOptimize/-reverse-differentiable/-reverse-differentiable.html
-$dokka.location:org.diffkt.adOptimize/ReverseDifferentiable/backpropogateMethod/#/PointingToDeclaration/api/org.diffkt.adOptimize/-reverse-differentiable/backpropogate-method.html
-$dokka.location:org.diffkt.adOptimize/ReverseDifferentiable/derivativeID/#/PointingToDeclaration/api/org.diffkt.adOptimize/-reverse-differentiable/derivative-i-d.html
-$dokka.location:org.diffkt.adOptimize/ReverseDifferentiable/primalField/#/PointingToDeclaration/api/org.diffkt.adOptimize/-reverse-differentiable/primal-field.html
-$dokka.location:org.diffkt.adOptimize/ReverseDifferentiable/pushbackMethod/#/PointingToDeclaration/api/org.diffkt.adOptimize/-reverse-differentiable/pushback-method.html
-$dokka.location:org.diffkt.adOptimize/ReverseDifferentiable/upstreamField/#/PointingToDeclaration/api/org.diffkt.adOptimize/-reverse-differentiable/upstream-field.html
-$dokka.location:org.diffkt.adOptimize/ReverseScalarOperations///PointingToDeclaration/api/org.diffkt.adOptimize/-reverse-scalar-operations/index.html
-$dokka.location:org.diffkt.adOptimize/ReverseScalarOperations/ReverseScalarOperations/#/PointingToDeclaration/api/org.diffkt.adOptimize/-reverse-scalar-operations/-reverse-scalar-operations.html
-$dokka.location:org.diffkt.adOptimize/ScalarNoop///PointingToDeclaration/api/org.diffkt.adOptimize/-scalar-noop/index.html
-$dokka.location:org.diffkt.adOptimize/ScalarNoop/ScalarNoop/#/PointingToDeclaration/api/org.diffkt.adOptimize/-scalar-noop/-scalar-noop.html
-$dokka.location:org.diffkt.adOptimize/ScalarRoot///PointingToDeclaration/api/org.diffkt.adOptimize/-scalar-root/index.html
-$dokka.location:org.diffkt.adOptimize/ScalarRoot/ScalarRoot/#/PointingToDeclaration/api/org.diffkt.adOptimize/-scalar-root/-scalar-root.html
-$dokka.location:org.diffkt.adOptimize/StackImpl///PointingToDeclaration/api/org.diffkt.adOptimize/-stack-impl/index.html
-$dokka.location:org.diffkt.adOptimize/StackImpl/StackImpl/#/PointingToDeclaration/api/org.diffkt.adOptimize/-stack-impl/-stack-impl.html
-$dokka.location:org.diffkt.adOptimize/ToReverse///PointingToDeclaration/api/org.diffkt.adOptimize/-to-reverse/index.html
-$dokka.location:org.diffkt.adOptimize/ToReverse/ToReverse/#kotlin.String/PointingToDeclaration/api/org.diffkt.adOptimize/-to-reverse/-to-reverse.html
-$dokka.location:org.diffkt.adOptimize/ToReverse/fqClass/#/PointingToDeclaration/api/org.diffkt.adOptimize/-to-reverse/fq-class.html
-$dokka.location:org.diffkt.adOptimize/ToUnboxedFunction///PointingToDeclaration/api/org.diffkt.adOptimize/-to-unboxed-function/index.html
-$dokka.location:org.diffkt.adOptimize/ToUnboxedFunction/ToUnboxedFunction/#kotlin.String/PointingToDeclaration/api/org.diffkt.adOptimize/-to-unboxed-function/-to-unboxed-function.html
-$dokka.location:org.diffkt.adOptimize/ToUnboxedFunction/functionName/#/PointingToDeclaration/api/org.diffkt.adOptimize/-to-unboxed-function/function-name.html
 $dokka.location:org.diffkt.external////PointingToDeclaration/api/org.diffkt.external/index.html
 $dokka.location:org.diffkt.external/Dnnl///PointingToDeclaration/api/org.diffkt.external/-dnnl/index.html
 $dokka.location:org.diffkt.external/Dnnl/add/#org.diffkt.StridedFloatTensor#org.diffkt.StridedFloatTensor/PointingToDeclaration/api/org.diffkt.external/-dnnl/add.html
@@ -1914,7 +1875,6 @@ $dokka.location:org.diffkt/Wrapper/wrap/#TypeParam(bounds=[kotlin.Any?])/Pointin
 $dokka.location:org.diffkt/Wrapper/wrapDTensor/#org.diffkt.DTensor/PointingToDeclaration/api/org.diffkt/-wrapper/wrap-d-tensor.html
 $dokka.location:org.diffkt/Wrapper/wrapRandomKey/#org.diffkt.random.RandomKey/PointingToDeclaration/api/org.diffkt/-wrapper/wrap-random-key.html
 org.diffkt
-org.diffkt.adOptimize
 org.diffkt.external
 org.diffkt.forward
 org.diffkt.gpu
