@@ -9,8 +9,7 @@ import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
     `maven-publish`
-    val shapeTypingVersion = "0.1.0-3dc727b"
-    id("org.diffkt.shapeTyping") version shapeTypingVersion
+    id("shapeKt") version "1.0"
     id("org.jetbrains.dokka") version "1.6.0"
 }
 
@@ -31,10 +30,10 @@ repositories {
 
 dependencies {
     implementation(group = "net.bytebuddy", name = "byte-buddy", version="1.12.7")
-    compileOnly("org.diffkt.shapeTyping:annotations:0.1.0-3dc727b")
-    compileOnly("org.diffkt.shapeTyping:shape-functions:0.1.0-3dc727b")
-    testCompileOnly("org.diffkt.shapeTyping:annotations:0.1.0-3dc727b")
-    testCompileOnly("org.diffkt.shapeTyping:shape-functions:0.1.0-3dc727b")
+    compileOnly("shapeKt:annotations:1.0")
+    compileOnly("shapeKt:shape-functions:1.0")
+    testCompileOnly("shapeKt:annotations:1.0")
+    testCompileOnly("shapeKt:shape-functions:1.0")
     testImplementation(project(":testutils"))
 }
 
