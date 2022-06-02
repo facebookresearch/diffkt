@@ -707,10 +707,10 @@ internal object EnableComputeFrames : AsmVisitorWrapper {
  */
 internal class JvmGenerator<OutputType : Any>(val trace: DedaggedTracingTensor<OutputType>) {
     private val implementation = GeneratedImplementation<OutputType>(trace)
-    val meth = ByteBuddy().subclass(Evaluator::class.java)
+    private val meth = ByteBuddy().subclass(Evaluator::class.java)
         .visit(EnableComputeFrames)
         .method(ElementMatchers.named("invoke"))
-    val loaded = try {
+    private val instance = try {
         val l = meth.intercept(implementation).make()
             .load(javaClass.classLoader)
             .loaded
@@ -720,7 +720,6 @@ internal class JvmGenerator<OutputType : Any>(val trace: DedaggedTracingTensor<O
     }
 
     fun getEvaluator(): Evaluator? {
-        return loaded?.newInstance()
+        return instance
     }
-
 }
