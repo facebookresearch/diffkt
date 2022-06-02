@@ -136,4 +136,22 @@ class InnerProductTest : AnnotationSpec() {
         */
         // TODO https://github.com/facebookincubator/diffkt/issues/99: should test the values of the derivatives
     }
+
+    /**
+     * Test fix for https://github.com/facebookresearch/diffkt/issues/73
+     */
+    @Test fun `regression 73`() {
+        fun f(x: DTensor) : DTensor {
+            val c = tensorOf(1f, 2f, 3f)
+            val y = c.innerProduct(Shape(3), x.pow(2f))
+            return y
+        }
+
+        val x = tensorOf(1f, 2f, 3f)
+        val (_, _) = primalAndReverseDerivative(x, ::f)
+    }
+}
+
+fun main() {
+    InnerProductTest().`regression 73`()
 }
