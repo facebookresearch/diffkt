@@ -45,15 +45,8 @@ import kotlin.reflect.jvm.javaMethod
  */
 internal fun <OutputType : Any> jvmTracingTranslator(trace: DedaggedTracingTensor<OutputType>): ((FloatArray) -> OutputType)? {
     require(trace.canScalarEval)
-    var fn: Evaluator
-    try {
-        val jvmGenerate = JvmGenerator(trace) // generate the bytecode
-        val f = jvmGenerate.getEvaluator()   // access the created class
-        if (f == null) return null
-        fn = f
-    } catch (x: MethodTooLargeException) {
-        return null
-    }
+    val jvmGenerate = JvmGenerator(trace) // generate the bytecode
+    val fn = jvmGenerate.getEvaluator() ?: return null   // access the created class
 
     // produce a function that calls it and assembles the [OutputType] object.
     val resultingFunction: (FloatArray) -> OutputType = { input: FloatArray ->
@@ -718,9 +711,10 @@ internal class JvmGenerator<OutputType : Any>(val trace: DedaggedTracingTensor<O
         .visit(EnableComputeFrames)
         .method(ElementMatchers.named("invoke"))
     val loaded = try {
-        meth.intercept(implementation).make()
+        val l = meth.intercept(implementation).make()
             .load(javaClass.classLoader)
             .loaded
+        l.newInstance()
     } catch (x: MethodTooLargeException) {
         null
     }
