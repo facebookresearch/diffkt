@@ -151,7 +151,3 @@ class InnerProductTest : AnnotationSpec() {
         val (_, _) = primalAndReverseDerivative(x, ::f)
     }
 }
-
-fun main() {
-    InnerProductTest().`regression 73`()
-}
