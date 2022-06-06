@@ -135,27 +135,27 @@ module.exports = {
             {
               type: 'doc',
               id: 'tutorials/data_science/logistics_regression/logistics_regression',
-              label: 'Logistics Regression',
+              label: 'Logistics Regression and Gradient Descent',
             },
             {
               type: 'doc',
               id: 'tutorials/data_science/exponential_distribution/exponential_distribution',
-              label: 'Exponential Distribution',
+              label: 'Exponential Distribution and Gradient Descent',
             },
             {
               type: 'doc',
               id: 'tutorials/data_science/multivariable_regression/multivariable_regression',
-              label: 'Multivariable Linear Regression',
+              label: 'Gradient Descent and Multivariable Linear Regression',
             },
             {
               type: 'doc',
               id: 'tutorials/data_science/nonlinear_regression/nonlinear_regression',
-              label: 'Nonlinear Regression',
+              label: '3D Nonlinear Regression',
             },
             {
               type: 'doc',
               id: 'tutorials/data_science/neural_network/neural_network',
-              label: 'Neural Network',
+              label: 'Neural Networks and Stochastic Gradient Descent',
             },
             {
               type: 'doc',
