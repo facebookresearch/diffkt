@@ -1,0 +1,115 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @format
+ */
+// @ts-check
+// Note: type annotations allow type checking and IDEs autocompletion
+
+/** @type {import('@docusaurus/types').Config} */
+const config = {
+  title: 'DiffKt',
+  tagline: 'A Kotlin Library for Automatic Differentiation',
+  url: 'https://diffkt.org',
+  baseUrl: '/',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+  favicon: 'img/diffkitty-black-banner.png',
+
+  // GitHub pages deployment config.
+  // If you aren't using GitHub pages, you don't need these.
+  organizationName: 'meta', // Usually your GitHub org/user name.
+  projectName: 'facebookresearch/diffkt', // Usually your repo name.
+  staticDirectories:['static'],
+
+  presets: [
+    [
+      'classic',
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
+        docs: {
+          sidebarPath: require.resolve('./sidebars.js'),
+        },
+        blog: {
+          showReadingTime: true,
+        },
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      }),
+    ],
+  ],
+
+  themeConfig:
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    ({
+      navbar: {
+        title: 'DiffKt',
+        logo: {
+          alt: 'DiffKt Logo',
+          src: 'img/diffkitty-black-banner.png',
+        },
+        items: [
+         {
+            type: 'doc',
+            docId: 'overview/why_diffkt/why_diffkt',
+            position: 'left',
+            label: 'Docs',
+          },
+          {
+            type: 'doc',
+            docId: 'tutorials/api/intro_to_diff_prog/intro_to_diff_prog',
+            position: 'left',
+            label: 'Tutorials',
+          },
+          {
+            to: 'blog',
+            label: 'Blog',
+            position: 'left'
+          },
+          {
+            href: 'pathname:///api/index.html',
+            label: 'API',
+            position: 'left',
+          },
+          // Please keep GitHub link to the right for consistency.
+          {
+            href: 'https://github.com/facebookresearch/diffkt',
+            label: 'GitHub',
+            position: 'right',
+          },
+        ],
+      },
+      footer: {
+        style: 'dark',
+        links: [
+          {
+            title: 'Legal',
+            // Please do not remove the privacy and terms, it's a legal requirement.
+            items: [
+              {
+                label: 'Privacy',
+                href: 'https://opensource.facebook.com/legal/privacy/',
+              },
+              {
+                label: 'Terms',
+                href: 'https://opensource.facebook.com/legal/terms/',
+              },
+            ],
+          },
+        ],
+        logo: {
+          alt: 'DiffKt Logo',
+          src: 'img/diffkitty-black-banner.png',
+          href: 'https://diffkt.org',
+        },
+        // Please do not remove the credits, help to publicize Docusaurus :)
+        copyright: `Copyright © ${new Date().getFullYear()} Meta, Inc. Built with Docusaurus.`,
+      },
+    }),
+};
+
+module.exports = config;
