@@ -78,16 +78,6 @@ Installation of diffkt on Ubuntu 20.04
 	source /opt/intel/oneapi/setvars.sh
 	Note: You may have link issues with the Intel libraries. For a quick work around, create a 
 	symbolic link in /usr/lib to the library that is not linking.
-35. In the file <your projects>/diffkt/cpp/ops/test/CMakeLists.txt, edit the following lines:
-
-	old: target_link_libraries(SparseArithmeticTest PUBLIC SparseTestUtils)
-	new: target_link_libraries(SparseArithmeticTest PUBLIC SparseTestUtils -liomp5)
-	
-	and
-	
-	old: target_link_libraries(SparseArithmeticPerfTest PUBLIC SparseTestUtils)
-	new: target_link_libraries(SparseArithmeticPerfTest PUBLIC SparseTestUtils -liomp5)
-	
 35. mkdir build
 36. cd build
 37. cmake ..
