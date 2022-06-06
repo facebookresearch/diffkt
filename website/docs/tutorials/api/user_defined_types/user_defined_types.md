@@ -9,4 +9,4 @@ a class with variables of type `DScalar`, it could be a list of said classes, or
 
 
 :::tip Open tutorial in Github
-[User Defined Types](https://github.com/facebookresearch/diffkt.preopn/blob/main/tutorials/user_defined_types.ipynb)
+[User Defined Types](https://github.com/facebookresearch/diffkt/blob/main/tutorials/user_defined_types.ipynb)

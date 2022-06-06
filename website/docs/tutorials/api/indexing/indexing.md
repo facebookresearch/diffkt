@@ -9,4 +9,4 @@ The tutorial also shows how take a section from a tensor. A section could be a 1
 Lastly, the tutorial shows how to access the actual Float values in a tensor.
 
 :::tip Open tutorial in Github
-[Indexing, Views, and Accessing Values](https://github.com/facebookresearch/diffkt.preopn/blob/main/tutorials/advanced_tensor_ops.ipynb)
+[Indexing, Views, and Accessing Values](https://github.com/facebookresearch/diffkt/blob/main/tutorials/indexing.ipynb)

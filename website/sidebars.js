@@ -157,6 +157,11 @@ module.exports = {
               id: 'tutorials/data_science/neural_network/neural_network',
               label: 'Neural Network',
             },
+            {
+              type: 'doc',
+              id: 'tutorials/data_science/neural_network_udt/neural_network_udt',
+              label: 'Neural Network User-Defined Types',
+            },
           ],
         },
         {
@@ -172,13 +177,13 @@ module.exports = {
             },
             {
               type: 'doc',
-              id: 'tutorials/physical_systems/soft_sphere_1d/soft_sphere_1d',
-              label: '1D Soft Sphere',
+              id: 'tutorials/physical_systems/mass_spring_jit/mass_spring_jit',
+              label: 'Mass Spring System using Just In Time Optimization',
             },
             {
               type: 'doc',
-              id: 'tutorials/physical_systems/soft_sphere_2d/soft_sphere_2d',
-              label: '2D Soft Sphere',
+              id: 'tutorials/physical_systems/soft_sphere/soft_sphere',
+              label: 'Soft Sphere',
             },
           ],
         },
