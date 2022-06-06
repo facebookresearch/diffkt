@@ -1,4 +1,5 @@
 build
+dnnl
 */CMakeFiles
 */cmake_install.cmake
 */CTestTestfile.cmake
