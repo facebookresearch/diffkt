@@ -4,12 +4,12 @@ Installation of diffkt on Ubuntu 20.04
 	sudo apt-get install build-essential libssl-dev
 2. Install CMAKE
 	sudo snap install cmake -classic
-3. Install JDK 8. If not installed, download "Oracle Java 8 JDK"
-4. Make sure that JAVA_HOME is set to the JDK 8 directory.
-5. Make sure your alternatives for java and javac point to the right directory
+3. Install JDK 11. If not installed, download "Oracle Java 11 JDK"
+4. Make sure that JAVA_HOME is set to the JDK 11 directory.
+5. Make sure your alternatives for java and javac point to the right version 
 6. Add $JAVA_HOME/bin to your PATH in .bashrc
 	export PATH = ${PATH}:$JAVA_HOME/bin
-7. Add the following environmental variables to be safe
+7. Add the following environmental variables
 	export JAVA_INCLUDE_PATH=$JAVA_HOME/include/
 	export JAVA_INCLUDE_PATH2=$JAVA_HOME/include/linux/
 	export JAVA_AWT_INCLUDE_PATH=$JAVA_HOME/include/
@@ -20,7 +20,7 @@ Installation of diffkt on Ubuntu 20.04
 	b) install Kotlin plugin
 	c) install Kotlin Notebook plugin
 	d) configure Kotlin Notebook plugin	
-10. Install CUDA from NVIDIA
+10. Install CUDA 11.? from NVIDIA (should work with the most current version, if not 11.1)
 	https://developer.nvidia.com/cuda-downloads
 11. Install cuDNN from NVDIA
 	https://developer.nvidia.com/rdp/cudnn-download
@@ -32,14 +32,10 @@ Installation of diffkt on Ubuntu 20.04
 16. Install github tools.
 	sudo apt-get install gh
 17. Install the token into github tools.
-18. From Meta, get invited to facebookresearch/diffkt.
-19. Fork diffkt to you github account.
-20. Clone the fork to your local computer.
+18. Fork diffkt to you github account.
+19. Clone the fork to your local computer.
 	gh repo clone <github-id>/diffkt
-21. From Meta, get an account to workspace for the diffkt project.
-22. From Meta, get added to the Google docs director for the diffkt project.
-23. Review the Getting Started-External Developers in the Google docs director.
-24. Check your local diffkt project to see if the original facebookresearch/diffkt.git is upstream
+20. Check your local diffkt project to see if the original facebookresearch/diffkt.git is upstream
 	cd <your git projects>/diffkt
 	git remote -v
 	
@@ -50,64 +46,56 @@ Installation of diffkt on Ubuntu 20.04
 	upstream	git@github.com:facebookresearch/diffkt.git (fetch)
 	upstream	git@github.com:facebookresearch/diffkt.git (push)
 	
-	If you are missing upstream, execute the following.
-	
+	If you are missing upstream, execute the following.	
 	git remote add upstream git@github.com:facebookresearch/diffkt.git
-25. Read the github docs for merging your local repository with upstream.
+21. Read the github docs for merging your local repository with upstream.
 	https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork
-26. In general, pull from upstream and merge, but checkin to origin (your fork) and do a pull request to merge with upstream.
-27. cd <you project>/diffkt/cpp/ops
-28. Read the readme.md
-29. Install OpenMP
+22. In general, pull from upstream and merge, but checkin to origin (your fork) and do a pull request to merge with upstream.
+23. cd <you project>/diffkt/cpp/ops
+24. Read the readme.md
+25. Install OpenMP
 	sudo apt install libomp-dev
 	
 	and/or
 	
 	sudo apt-get install libgomp1
-30. Install Eigen
+26. Install Eigen
 	sudo apt-get install libeigen3-dev
-31. Install the Intel oneAPI Base Toolkit
-	https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html#gs.j1gaw2
-32. nop 
-33. Add the proper oneAPI libraries to link. diffkt uses version 2.1.0, which is different from the Base Toolkit.
+27. Install the Intel oneAPI Base Toolkit
+28. Add the proper oneAPI libraries to link. diffkt uses version 2.1.0, which is different from the Base Toolkit.
     cd <your git projects>diffkt/cpp/ops
     wget $(fwdproxy-config wget) https://github.com/oneapi-src/oneDNN/releases/download/v2.1/dnnl_lnx_2.1.0_cpu_gomp.tgz
     tar -zxvf dnnl_lnx_2.1.0_cpu_gomp.tgz
-    mv dnnl_lnx_2.1.0_cpu_gomp dnnl
-34. If you are having build or link problems, try setting environmental variables to use Intel libraries
-	source /opt/intel/oneapi/setvars.sh
-	Note: You may have link issues with the Intel libraries. For a quick work around, create a 
-	symbolic link in /usr/lib to the library that is not linking.
-35. mkdir build
-36. cd build
-37. cmake ..
-39. make VERBOSE=1
-40. If make completed without error, then the ops directory should be built and installed as the following:
-    
+
+    mv dnnl_lnx_2.1.0_cpu_gomp dnnl	
+29. mkdir build
+30. cd build
+31. cmake ..
+32. make VERBOSE=1
+33. If make completed without error, then the ops directory should be built and installed as the following:  
 	<your projects>/diffkt/kotlin/api/src/main/resources/libdnnlops_jni.so
 	<your projects>/diffkt/kotlin/api/src/main/resources/libops_jni.so
 	<your projects>/diffkt/kotlin/api/src/main/resources/libsparseops_jni.so
 
-41. cd <your projects>/diffkt/cpp/gpuops
-42. read README.md
-43. Install libtorch in the gpuops directory. .gitignore is set to ignore the directory
+34. cd <your projects>/diffkt/cpp/gpuops
+35. read README.md
+36. source /opt/intel/oneapi/setvars.sh
+	Note: You may have link issues with the Intel libraries. For a quick work around, create a 
+	symbolic link in /usr/lib to the library that is not linking.
+37. Install libtorch in the gpuops directory. .gitignore is set to ignore the directory
 	
-	wget $(fwdproxy-config wget) https://download.pytorch.org/libtorch/cu92/libtorch-shared-with-deps-1.5.0%2Bcu92.zip
-	unzip libtorch-shared-with-deps-1.5.0+cu92.zip
-	rm libtorch-shared-with-deps-1.5.0+cu92.zip
-44. This is an old verion of libtorch. A cmake file needs to be edited to use more cuurent versions of CUDA.
-    Edit <your projects>/diffkt/cpp/gpuops/libtorch/share/cmake/Caffe2/public/cuda.cmake
-    	find string "cudnn.h" and replace with "cudnn_version.h"
-    	
-45. mkdir build
-46. cd build
-47. cmake ..
-48. make VERBOSE=1 -j
-49. If make completed without error, then the ops directory should be built and installed as the following:
+	wget $(fwdproxy-config wget) https://download.pytorch.org/libtorch/lts/1.8/cu111/libtorch-cxx11-abi-shared-with-deps-1.8.2%2Bcu111.zip
+	unzip libtorch-cxx11-abi-shared-with-deps-1.8.2%2Bcu111.zip
+	rm libtorch-cxx11-abi-shared-with-deps-1.8.2%2Bcu111.zip
+38. mkdir build
+39. cd build
+40. cmake ..
+41. make VERBOSE=1 -j
+42. If make completed without error, then the gpuops directory should be built and installed as the following:
 
 	<your projects>/diffkt/kotlin/api/src/main/resources/libgnuops_jni.so
 
-50. The first line in diffkt/kotlin/gradlew has to be changed to 
+43. The first line in diffkt/kotlin/gradlew has to be changed to 
 	##!/usr/bin/env bash
 	
 	also you might change /bin/sh to a symbolic link to /bin/bash
@@ -116,7 +104,7 @@ Installation of diffkt on Ubuntu 20.04
 	Because of this diffkt/kotlin/scripts/set_env_vars.sh will not be called and 
 	enviromental variables you need for gradle and for jni will not be set.
 	
-51. Intellij Idea does not use gradlew to do gradle builds.
+44. Intellij Idea does not use gradlew to do gradle builds.
     You need to source diffkt/kotlin/scripts/set_env_vars.sh in the shell that you use to startup Intellij Idea.
     
     I created a wrapper bash script that sourced the file and then called Intellij Idea. I then changed my <idea>.desktop file to point to the wrapper script
@@ -126,18 +114,16 @@ Installation of diffkt on Ubuntu 20.04
 	"<your installation of Intellij>/bin/idea.sh"
     
     
-52. Anytime you want to use the api.jar, you have to source diffkt/kotlin/scripts/setenv_vars.sh in the shell you are going to run the jvm
+45. Anytime you want to use the api.jar, you have to source diffkt/kotlin/scripts/setenv_vars.sh in the shell you are going to run the jvm
 
-53. Anytine you want to run a kotlin jupyter notebook using api.jar, you have to source diffkt/kotlin/scripts/setenv_vars.sh in the shell you are going to run the notebook
+46. Anytine you want to run a kotlin jupyter notebook using api.jar, you have to source diffkt/kotlin/scripts/setenv_vars.sh in the shell you are going to run the notebook
 		
-54. cd <your projects>/diffkt/kotlin
-55. read README.md
-56. At GitHub make sure you token has "read:packages" scope.
-57. Create the file github.env with the following in it:
+48. cd <your projects>/diffkt/kotlin
+49. read README.md
+50. At GitHub make sure you token has "read:packages" scope.
+51. Create the file github.env with the following in it:
 	GITHUB_ACTOR=<your username>
 	GITHUB_TOKEN=<your access token with the read:packages permission>
-58. Start intellij
-59. Open <you projects>/diffkt/kotlin
-60. Build project
-
-
+52. Start intellij
+53. Open <you projects>/diffkt/kotlin
+53. Build project

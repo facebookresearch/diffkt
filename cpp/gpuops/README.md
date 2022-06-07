@@ -7,8 +7,8 @@ Download and extract libtorch.
 To download on a devserver, run:
 ```
 # from <repo root>/cpp/gpuops
-wget $(fwdproxy-config wget) https://download.pytorch.org/libtorch/cu92/libtorch-shared-with-deps-1.5.0%2Bcu92.zip
-unzip libtorch-shared-with-deps-1.5.0+cu92.zip
+wget $(fwdproxy-config wget) https://download.pytorch.org/libtorch/lts/1.8/cu111/libtorch-cxx11-abi-shared-with-deps-1.8.2%2Bcu111.zip
+unzip libtorch-cxx11-abi-shared-with-deps-1.8.2%2Bcu111.zip
 ```
 (More info on fwdproxy here: https://www.internalfb.com/intern/wiki/Development_Environment/Internet_Proxy/)
 
