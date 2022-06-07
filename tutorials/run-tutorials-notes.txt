@@ -1,58 +1,14 @@
-How to run the notebook on Ubuntu 21.04
+How to run the notebook on Ubuntu 20.04
 
-1. Install anaconda.
-
-2. Create a python environment
-
-	conda create -n diffktenv python=3.8
-	
-3. Activate your enviroment	
-	
-	conda activate diffktenv
-		
-4. Install jupyter
-
-	conda install -c conda-forge notebook
-	
-5. Install kotlin-jupyter notebook
-
-	conda install -c jetbrains-dev kotlin-jupyter-kernel
-	
-6. In a bash shell
-
-	source <your projects directory>/diffkt/kotlin/scripts/set_env_vars.sh
-	<path to IntelliJ Idea bin directory>/idea.sh
-	
-6. Open IntelliJ IDEA such that the top level directory of the project is <your projects home>/diffkt
-
-7. In IntelliJ IDEA install the python pluging
-
-9. Open Project Structure > Platform Settings > SDK
-
-10. Add a python interpreter
-	
-	Select Conda Enviroment
-	Select Existing enviroment
-	For the Interpreter <path to anaconda>/envs/diffktenv/bin/python
-	
-
-11. In IntelliJ IDEA install the Kotlin Notebook plugin
-
-12. Open Settings > Jupyter > Jupyter Servers
-	
-	for each directory listed, 
-		Set -> Use Managed Server
-		Python interpreter -> Python 3.8 (diffktenv)
-		
-13. Open the gradle tab
-
-	run diffkt > Tasks > documentation > dokkaHtml	
-	The docs should be created in diffkt/docs/api
-	
-	Currently, the notebook uses the build in webserver in IntelliJ for
-	the hyperlinks to the diffkt API documentation.
-	In the future this will change to github pages for diffkt.
-	
-14. Run the notebook
-		
-
+1. Checkout and build DiffKt.
+2. Install Anaconda.
+3. Create an Anaconda enviroment with the following command
+	conda env create -f <your projects>/diffkt/tutorials/enviroment.yml
+4. You now have a conda enviroment call diffkt, activate it
+	conda activate diffkt
+5. Source a script to set some required enviromental variables required for api.jar
+	<your projects>/diffkt/kotlin/scripts/set_env_vars.sh
+6. Start Jupyter notebook server
+	jupyter notebook
+7. A webpage will show up in your browser,
+   select the notebook you want to run.
