@@ -22,6 +22,7 @@ cd ..
 cd website
 npm run build
 cp -a build/. ../docs/
+cp CNAME ../docs
 cd ..
 git checkout gh-pages
 git add .
