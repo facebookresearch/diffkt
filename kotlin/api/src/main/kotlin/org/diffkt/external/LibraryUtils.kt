@@ -7,12 +7,20 @@
 
 package org.diffkt.external
 
-private const val DYLIB_EXTENSION_ENV_VAR = "DYLIB_EXTENSION"
-private const val DEFAULT_DYLIB_EXTENSION = ".dylib"
-
 internal fun loadLib(name: String) {
     fun getLibNameWithExtension(name: String): String {
-        val ext = System.getenv(DYLIB_EXTENSION_ENV_VAR) ?: DEFAULT_DYLIB_EXTENSION
+
+        val os = System.getProperty("os.name")
+        val ext = if (os.startsWith("Linux")) {
+            ".so"
+        } else { if (os.startsWith("Darwin")) {
+            ".dylib"
+        } else { if (os.startsWith("Windows")) {
+            ".dll"
+        } else {
+            throw Exception("Unsupported os - ${os}")
+        }}}
+
         return "${name}$ext"
     }
 
