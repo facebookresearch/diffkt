@@ -7,10 +7,12 @@
 
 import org.jetbrains.dokka.gradle.DokkaTask
 
+
 plugins {
     `maven-publish`
     id("shapeKt") version "1.0"
     id("org.jetbrains.dokka") version "1.6.0"
+    signing
 }
 
 repositories {
@@ -63,21 +65,39 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>() {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            groupId = "org.diffkt"
+            groupId = "com.facebook"
             artifactId = "api"
-            version = project.version.toString()
+            version = "0.0.1-SNAPSHOT"//project.version.toString()
             from(components["java"])
         }
     }
     repositories {
-        maven {
+        /*maven {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/facebookresearch/diffkt")
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
             }
+        }*/
+        if (version.toString().endsWith("SNAPSHOT")) {
+            maven("https://s01.oss.sonatype.org/content/repositories/snapshots/") {
+                name = "sonatypeReleaseRepository"
+                credentials {
+                    username = properties.get("repositoryUsername") as String
+                    password = properties.get("repositoryPassword") as String
+                }
+            }
+        } else {
+            maven("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                name = "sonatypeSnapshotRepository"
+                credentials {
+                    username = properties.get("repositoryUsername") as String
+                    password = properties.get("repositoryPassword") as String
+                }
+            }
         }
+
     }
 }
 
