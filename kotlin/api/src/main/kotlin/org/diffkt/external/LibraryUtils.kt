@@ -7,24 +7,25 @@
 
 package org.diffkt.external
 
-private const val DYLIB_EXTENSION_ENV_VAR = "DYLIB_EXTENSION"
-private const val DEFAULT_DYLIB_EXTENSION = ".dylib"
-
 internal fun loadLib(name: String) {
-
-    fun getLibNameWithExtension(name: String): String {
+    fun getExtension(name: String): String {
 
         val os = System.getProperty("os.name")
-        val ext = if (os.contains("Darwin", ignoreCase = true)) {
+        println(os)
+        val ext = if (os.contains("Linux", ignoreCase = true)) {
+            ".so"
+        } else if (os.contains("Darwin", ignoreCase = true)) {
             ".dylib"
-        }  else
-           ".dylib"
+        } else if (os.contains("Windows", ignoreCase = true)) {
+            ".dll"
+        } else
+           ".dylib"         // default to a mac
 
-//        val ext = System.getenv(DYLIB_EXTENSION_ENV_VAR) ?: DEFAULT_DYLIB_EXTENSION
-        return "${name}$ext"
+        return ext
     }
 
-    val libFileName = getLibNameWithExtension(name)
+    val ext = getExtension(name)
+    val libFileName = "${name}$ext"
 
     // code inside the try block is adapted from the accepted answer here:
     // https://stackoverflow.com/questions/4691095/java-loading-dlls-by-a-relative-path-and-hide-them-inside-a-jar
@@ -34,7 +35,7 @@ internal fun loadLib(name: String) {
         val buffer = ByteArray(1024)
         // We copy the lib to a temp file because we were unable to load the lib directly from within a jar when
         // using the packaged library.
-        val temp = createTempFile("utils/$name.dylib", "")
+        val temp = createTempFile("utils/${name}$ext", "")
         val fos = temp.outputStream()
 
         var read = input.read(buffer)

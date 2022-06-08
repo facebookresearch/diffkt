@@ -95,35 +95,13 @@ Installation of diffkt on Ubuntu 20.04
 
 	<your projects>/diffkt/kotlin/api/src/main/resources/libgnuops_jni.so
 
-43. The first line in diffkt/kotlin/gradlew has to be changed to 
-	##!/usr/bin/env bash
-	
-	also you might change /bin/sh to a symbolic link to /bin/bash
-	
-	On Ubuntu /bin/sh is linked to /bin/dash. dash does not support the source command.
-	Because of this diffkt/kotlin/scripts/set_env_vars.sh will not be called and 
-	enviromental variables you need for gradle and for jni will not be set.
-	
-44. Intellij Idea does not use gradlew to do gradle builds.
-    You need to source diffkt/kotlin/scripts/set_env_vars.sh in the shell that you use to startup Intellij Idea.
-    
-    I created a wrapper bash script that sourced the file and then called Intellij Idea. I then changed my <idea>.desktop file to point to the wrapper script
-    
-    	#/bin/bash
-	source "<your projects directory>/diffkt/kotlin/scripts/set_env_vars.sh"
-	"<your installation of Intellij>/bin/idea.sh"
-    
-    
-45. Anytime you want to use the api.jar, you have to source diffkt/kotlin/scripts/setenv_vars.sh in the shell you are going to run the jvm
-
-46. Anytine you want to run a kotlin jupyter notebook using api.jar, you have to source diffkt/kotlin/scripts/setenv_vars.sh in the shell you are going to run the notebook
-		
-48. cd <your projects>/diffkt/kotlin
-49. read README.md
-50. At GitHub make sure you token has "read:packages" scope.
-51. Create the file github.env with the following in it:
+43. Make sure your default shell is bash and that sh links to bash
+44. cd <your projects>/diffkt/kotlin
+45. read README.md
+46. At GitHub make sure you token has "read:packages" scope.
+47. Create the file github.env with the following in it:
 	GITHUB_ACTOR=<your username>
 	GITHUB_TOKEN=<your access token with the read:packages permission>
-52. Start intellij
-53. Open <you projects>/diffkt/kotlin
-53. Build project
+48. Start intellij
+49. Open <you projects>/diffkt/kotlin
+50. Build project
