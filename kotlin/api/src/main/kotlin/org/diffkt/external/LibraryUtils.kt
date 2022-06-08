@@ -11,15 +11,14 @@ internal fun loadLib(name: String) {
     fun getExtension(name: String): String {
 
         val os = System.getProperty("os.name")
-        val ext = if (os.startsWith("Linux")) {
+        val ext = if (os.contains("Linux", ignoreCase = true)) {
             ".so"
-        } else { if (os.startsWith("Darwin")) {
+        } else if (os.contains("Darwin", ignoreCase = true)) {
             ".dylib"
-        } else { if (os.startsWith("Windows")) {
+        } else if (os.contains("Windows", ignoreCase = true)) {
             ".dll"
-        } else {
+        } else
             throw Exception("Unsupported os - ${os}")
-        }}}
 
         return ext
     }
