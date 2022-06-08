@@ -2,48 +2,34 @@
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-### Installation
+Make sure your fork of the repo at Github, and you local repo, have 
+the branch gh-pages from the main repo.
 
-```
-$ yarn
-```
+### Installation
+1. First install nodejs
+   https://nodejs.org/en/
+
+2. Install Docusaurus
+   cd diffkt/website
+   npx create-docusaurus@latest my-website facebook
+
+3. Install Latex
+   cd diffkt/website
+   npm install --save remark-math@3 rehype-katex@5 hast-util-is-element@1.1.0
 
 ### Local Development
-
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+   cd diffkt/website
+   npm run start
 
 ### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+    cd diffkt/website
+    npm run build
 
 ### Deployment
+    cd diffkt/website
+    ./publish.sh
 
-Using SSH:
+    After running the script, the diffkt/website/build directory will 
+    be the gh-pages branch of your fork locally and on Github. You can
+    then create a PR to merge it to the main repo.
 
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
-
-### Continuous Integration
-
-Some common defaults for linting/formatting have been set for you. If you integrate your project with an open source Continuous Integration system (e.g. Travis CI, CircleCI), you may check for issues using the following command.
-
-```
-$ yarn ci
-```
