@@ -8,7 +8,7 @@
 package org.diffkt.external
 
 internal fun loadLib(name: String) {
-    fun getLibNameWithExtension(name: String): String {
+    fun getExtension(name: String): String {
 
         val os = System.getProperty("os.name")
         val ext = if (os.startsWith("Linux")) {
@@ -21,10 +21,11 @@ internal fun loadLib(name: String) {
             throw Exception("Unsupported os - ${os}")
         }}}
 
-        return "${name}$ext"
+        return ext
     }
 
-    val libFileName = getLibNameWithExtension(name)
+    val ext = getExtension(name)
+    val libFileName = "${name}$ext"
 
     // code inside the try block is adapted from the accepted answer here:
     // https://stackoverflow.com/questions/4691095/java-loading-dlls-by-a-relative-path-and-hide-them-inside-a-jar
@@ -34,7 +35,7 @@ internal fun loadLib(name: String) {
         val buffer = ByteArray(1024)
         // We copy the lib to a temp file because we were unable to load the lib directly from within a jar when
         // using the packaged library.
-        val temp = createTempFile("utils/$name.dylib", "")
+        val temp = createTempFile("utils/${name}$ext", "")
         val fos = temp.outputStream()
 
         var read = input.read(buffer)
