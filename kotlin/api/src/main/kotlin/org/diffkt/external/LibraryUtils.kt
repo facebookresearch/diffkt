@@ -18,7 +18,7 @@ internal fun loadLib(name: String) {
         val ext = if (os.contains("Darwin", ignoreCase = true)) {
             ".dylib"
         }  else
-            throw Exception("Unsupported os - ${os}")
+           ".dylib"
 
 //        val ext = System.getenv(DYLIB_EXTENSION_ENV_VAR) ?: DEFAULT_DYLIB_EXTENSION
         return "${name}$ext"
