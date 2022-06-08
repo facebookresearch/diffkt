@@ -39,9 +39,6 @@ const config = {
           rehypePlugins: [katex],
           sidebarPath: require.resolve('./sidebars.js'),
         },
-        blog: {
-          showReadingTime: true,
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -70,11 +67,6 @@ const config = {
             docId: 'tutorials/api/intro_to_diff_prog/intro_to_diff_prog',
             position: 'left',
             label: 'Tutorials',
-          },
-          {
-            to: 'blog',
-            label: 'Blog',
-            position: 'left'
           },
           {
             href: 'pathname:///api/index.html',
