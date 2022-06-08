@@ -11,8 +11,16 @@ private const val DYLIB_EXTENSION_ENV_VAR = "DYLIB_EXTENSION"
 private const val DEFAULT_DYLIB_EXTENSION = ".dylib"
 
 internal fun loadLib(name: String) {
+
     fun getLibNameWithExtension(name: String): String {
-        val ext = System.getenv(DYLIB_EXTENSION_ENV_VAR) ?: DEFAULT_DYLIB_EXTENSION
+
+        val os = System.getProperty("os.name")
+        val ext = if (os.contains("Darwin", ignoreCase = true)) {
+            ".dylib"
+        }  else
+            throw Exception("Unsupported os - ${os}")
+
+//        val ext = System.getenv(DYLIB_EXTENSION_ENV_VAR) ?: DEFAULT_DYLIB_EXTENSION
         return "${name}$ext"
     }
 
