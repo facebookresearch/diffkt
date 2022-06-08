@@ -11,10 +11,11 @@ internal fun loadLib(name: String) {
     fun getExtension(name: String): String {
 
         val os = System.getProperty("os.name")
-        println(os)
         val ext = if (os.contains("Linux", ignoreCase = true)) {
             ".so"
         } else if (os.contains("Darwin", ignoreCase = true)) {
+            ".dylib"
+        } else if (os.contains("Mac OS X", ignoreCase = true)) {  // for Github container
             ".dylib"
         } else if (os.contains("Windows", ignoreCase = true)) {
             ".dll"
