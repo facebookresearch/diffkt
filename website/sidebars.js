@@ -243,7 +243,7 @@ module.exports = {
         {
           type: 'doc',
           id: 'examples/neohookean/neohookean',
-          label: 'Neohookean',
+          label: 'Neohookean Spring',
         },
         {
           type: 'doc',
@@ -253,7 +253,7 @@ module.exports = {
         {
           type: 'doc',
           id: 'examples/quadratic/quadratic',
-          label: 'Quadratic',
+          label: 'Quadratic Equation',
         },
         {
           type: 'doc',
