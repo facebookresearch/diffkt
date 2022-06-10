@@ -57,7 +57,7 @@
 	`sudo apt-get install gh`
 
 17. Install the token into github tools.
-18. Fork diffkt to you github account.
+18. Fork facebookresearch/diffkt to you github account.
 19. Clone the fork to your local computer.
 
 	`gh repo clone {github-id}/diffkt`
