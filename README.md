@@ -55,7 +55,9 @@ For more detailed instructions, please visit the ShapeTyping repository here. (T
 
 You may also build DiffKt from source.
 
-TODO: MacOS and Linux instructions
+To build Diffke from source files for a Mac, read INSTALL_MAC.md
+
+To build DiffKt from source files for UBUNTU, read INSTALL_UBUNTU.md
 
 #### Kotlin Examples
 
