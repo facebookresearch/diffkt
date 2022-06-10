@@ -6,9 +6,7 @@ How to run the notebook on Ubuntu 20.04
 	conda env create -f <your projects>/diffkt/tutorials/enviroment.yml
 4. You now have a conda enviroment call diffkt, activate it
 	conda activate diffkt
-5. Source a script to set some required enviromental variables required for api.jar
-	<your projects>/diffkt/kotlin/scripts/set_env_vars.sh
-6. Start Jupyter notebook server
+5. Start Jupyter notebook server
 	jupyter notebook
-7. A webpage will show up in your browser,
+6. A webpage will show up in your browser,
    select the notebook you want to run.
