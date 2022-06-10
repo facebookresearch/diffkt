@@ -62,6 +62,11 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'framework/shapekt/shapekt',
+          label: 'ShapeKt',
+        },
+        {
+          type: 'doc',
           id: 'framework/data_science/data_science',
           label: 'Data Science',
         },

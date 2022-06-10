@@ -26,6 +26,14 @@ the branch gh-pages from the main repo.
     npm run build
 
 ### Deployment
+    To be on the safe side:
+    	1. sync your fork of origin/gh-pages to upstream/gh-page, in case
+    	   facebook Open Source support directly added something to gh-pages
+    	2. cd diffkt
+    	3. locally, git checkout gh-pages
+    	4. locally, git pull
+    	5. locally, git checkout <branch with docusaurus>
+    	
     cd diffkt/website
     ./publish.sh
 

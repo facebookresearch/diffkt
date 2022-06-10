@@ -20,11 +20,18 @@ const features = [
     title: 'Automatic Differentiation with Kotlin',
     description: (
       <>
-        DiffKt is a Kotlin library for Kotlin developers who need automatic differentiation in their code.
-        DiffKt can be used for differentiable rendering in graphics, machine learning and statistics in data science,
-        deep neural networks, numerical optimization, physical modeling and scientific computing,
-        and any application that requires taking the derivative of a function.
-        DiffKt supports functions over multi-dimensional tensors and user defined types in Kotlin.
+        <p>
+          DiffKt is a general-purpose, functional, differentiable programming framework for Kotlin.
+          It can automatically differentiate through functions of tensors, scalars, and user-defined types.
+          It supports forward-mode and reverse-mode differentiation including
+          Jacobian-vector and vector-Jacobian products, which can be composed for higher-order differentiation.
+        </p>
+        <p>
+          DiffKt also includes an early integration of ShapeTyping, an extensible
+          compiler plugin for ahead-of-time tensor shape verification and inspection.
+          With the ShapeTyping IntelliJ IDE plugin, users can even inspect tensor shapes
+          and see tensor shape errors while in active development.
+        </p>
       </>
     ),
   },
