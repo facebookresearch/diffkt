@@ -1,7 +1,8 @@
 ---
 id: 'contribute'
-title: 'Contribute to DiffKt'
+title: 'Contributing to DiffKt'
 slug: '/examples/contribute'
 ---
+import README from "../../../CONTRIBUTING.md";
 
-## TBD
+<README />

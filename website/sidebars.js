@@ -44,8 +44,13 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'overview/installation/installation',
-          label: 'Installation',
+          id: 'overview/installation_mac/installation_mac',
+          label: 'Installation on Mac',
+        },
+        {
+          type: 'doc',
+          id: 'overview/installation_ubuntu/installation_ubuntu',
+          label: 'Installation on Ubuntu',
         },
       ],
     },
@@ -301,7 +306,7 @@ module.exports = {
         {
           type: 'doc',
           id: 'contribute/contribute',
-          label: 'Contribute to DiffKt',
+          label: 'Contributing to DiffKt',
         },
       ],
     },
