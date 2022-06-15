@@ -12,6 +12,8 @@ plugins {
     `maven-publish`
     id("shapeKt") version "1.0"
     id("org.jetbrains.dokka") version "1.6.0"
+    id("maven-publish")
+
     signing
 }
 
@@ -62,12 +64,14 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>() {
 //          export GITHUB_USERNAME=${{YOUR USRNAME}}
 //          export GITHUB_ACCESS_TOKEN=${{ACCESS TOKEN WITH PACKAGE WRITE ACCESS}}
 //          ./gradlew publish -Pversion=0.1.0-$(git rev-parse --short HEAD)
+
+/*
 publishing {
     publications {
         create<MavenPublication>("maven") {
             groupId = "com.facebook"
             artifactId = "api"
-            version = "0.0.1-SNAPSHOT"//project.version.toString()
+            version = "0.0.1-DEV"//project.version.toString()
             from(components["java"])
         }
     }
@@ -97,7 +101,48 @@ publishing {
                 }
             }
         }
+    }
+}
+*/
+val releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+val snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
 
+
+fun getRepoUrl(): String {
+    if (version.toString().endsWith("SNAPSHOT")) {
+        return snapshotsRepoUrl
+    }
+    return releasesRepoUrl
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.facebook"
+            artifactId = "api"
+            version = "0.0.1-DEV1"//project.version.toString()
+            from(components["java"])
+        }
+    }
+
+    repositories {
+        /*withType<MavenArtifactRepository> {
+            if (name == "local") {
+                return@withType
+            }
+            url = uri(getRepoUrl())
+            credentials {
+                username = project.property("repositoryUsername").toString()
+                password = project.property("repositoryPassword").toString()
+            }
+        }*/
+        maven(getRepoUrl()) {
+            name = "sonatypeReleaseRepository"
+            credentials {
+                username = project.property("repositoryUsername").toString()
+                password = project.property("repositoryPassword").toString()
+            }
+        }
     }
 }
 
