@@ -12,8 +12,6 @@ plugins {
     `maven-publish`
     id("shapeKt") version "1.0"
     id("org.jetbrains.dokka") version "1.6.0"
-    id("maven-publish")
-
     signing
 }
 
@@ -104,45 +102,72 @@ publishing {
     }
 }
 */
-val releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
-val snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
 
 
-fun getRepoUrl(): String {
-    if (version.toString().endsWith("SNAPSHOT")) {
-        return snapshotsRepoUrl
-    }
-    return releasesRepoUrl
-}
+val repositoryUsername: String by project
+val repositoryPassword: String by project
+val signingKey: String? by project
+val signingPassword: String? by project
+
+
+fun isRelease() = true // System.getenv("VERSION_NAME") != null
 
 publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            groupId = "com.facebook"
-            artifactId = "api"
-            version = "0.0.1-DEV1"//project.version.toString()
-            from(components["java"])
+    repositories {
+        maven {
+            val releasesRepoUrl = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+            val snapshotsRepoUrl = uri("https://oss.sonatype.org/content/repositories/snapshots/")
+            name = "deploy"
+            url = if (isRelease()) releasesRepoUrl else snapshotsRepoUrl
+            credentials {
+                username = System.getenv("repositoryUsername") ?: repositoryUsername
+                password = System.getenv("repositoryPassword") ?: repositoryPassword
+            }
         }
     }
 
-    repositories {
-        /*withType<MavenArtifactRepository> {
-            if (name == "local") {
-                return@withType
-            }
-            url = uri(getRepoUrl())
-            credentials {
-                username = project.property("repositoryUsername").toString()
-                password = project.property("repositoryPassword").toString()
-            }
-        }*/
-        maven(getRepoUrl()) {
-            name = "sonatypeReleaseRepository"
-            credentials {
-                username = project.property("repositoryUsername").toString()
-                password = project.property("repositoryPassword").toString()
+    publications {
+        create<MavenPublication>("Diffkt") {
+            //from(components["javaPlatform"])
+            pom {
+                name.set("DiffKt")
+                description.set("Automatic differentiation in Kotlin")
+                url.set("https://github.com/facebookresearch/diffkt")
+
+                groupId = "com.facebook.diffkt"
+                artifactId = "diffkt"
+                version = "0.0.1-DEV1"
+
+                scm {
+                    connection.set("scm:git:https://github.com/facebookresearch/diffkt")
+                    developerConnection.set("scm:git:https://github.com/thomasnield/")
+                    url.set("https://github.com/facebookresearch/diffkt")
+                }
+
+                licenses {
+                    license {
+                        name.set("MIT-1.0")
+                        url.set("https://opensource.org/licenses/MIT")
+                    }
+                }
+
+                developers {
+                    developer {
+                        id.set("thomasnield")
+                        name.set("Thomas Nield")
+                        email.set("thomasnield@live.com")
+                    }
+                }
             }
         }
+    }
+}
+
+signing {
+    val publications: PublicationContainer = (extensions.getByName("publishing") as PublishingExtension).publications
+
+    if (isRelease()) {
+        sign(publications)
     }
 }
 
@@ -150,8 +175,8 @@ apply(plugin="org.jetbrains.dokka")
 tasks.withType<DokkaTask>().configureEach{
     outputDirectory.set(rootDir.resolve("../docs/api"))
     dokkaSourceSets {
-      configureEach {
-          samples.from(rootDir.resolve("samples/src/main/kotlin"))
-      }
+        configureEach {
+            samples.from(rootDir.resolve("samples/src/main/kotlin"))
+        }
     }
 }
