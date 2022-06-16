@@ -39,6 +39,22 @@ dependencies {
     testImplementation(project(":testutils"))
 }
 
+//sources
+val sourcesJar by tasks.register<Jar>("sourcesJar") {
+    group = "build"
+    description = "Assembles a jar archive containing the main sources."
+    archiveClassifier.set("sources")
+
+    from(sourceSets["main"].allSource)
+    from("LICENSE")
+}
+
+//documentation
+val javadocJar by tasks.creating(Jar::class) {
+    archiveClassifier.set("javadoc")
+    from("$buildDir/javadoc")
+}
+
 tasks.register<Exec>("buildExternalJni") {
     commandLine("../../cpp/ops/scripts/build.sh")
 }
@@ -62,46 +78,6 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>() {
 //          export GITHUB_USERNAME=${{YOUR USRNAME}}
 //          export GITHUB_ACCESS_TOKEN=${{ACCESS TOKEN WITH PACKAGE WRITE ACCESS}}
 //          ./gradlew publish -Pversion=0.1.0-$(git rev-parse --short HEAD)
-
-/*
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            groupId = "com.facebook"
-            artifactId = "api"
-            version = "0.0.1-DEV"//project.version.toString()
-            from(components["java"])
-        }
-    }
-    repositories {
-        /*maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/facebookresearch/diffkt")
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }*/
-        if (version.toString().endsWith("SNAPSHOT")) {
-            maven("https://s01.oss.sonatype.org/content/repositories/snapshots/") {
-                name = "sonatypeReleaseRepository"
-                credentials {
-                    username = properties.get("repositoryUsername") as String
-                    password = properties.get("repositoryPassword") as String
-                }
-            }
-        } else {
-            maven("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                name = "sonatypeSnapshotRepository"
-                credentials {
-                    username = properties.get("repositoryUsername") as String
-                    password = properties.get("repositoryPassword") as String
-                }
-            }
-        }
-    }
-}
-*/
 
 
 val repositoryUsername: String by project
@@ -129,6 +105,11 @@ publishing {
     publications {
         create<MavenPublication>("Diffkt") {
             //from(components["javaPlatform"])
+            from(components["java"])
+
+            artifact(sourcesJar)
+            artifact(javadocJar)
+
             pom {
                 name.set("DiffKt")
                 description.set("Automatic differentiation in Kotlin")
@@ -136,7 +117,7 @@ publishing {
 
                 groupId = "com.facebook.diffkt"
                 artifactId = "diffkt"
-                version = "0.0.1-DEV1"
+                version = "0.0.1-DEV2"
 
                 scm {
                     connection.set("scm:git:https://github.com/facebookresearch/diffkt")
