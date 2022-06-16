@@ -115,7 +115,7 @@ publishing {
                 description.set("Automatic differentiation in Kotlin")
                 url.set("https://github.com/facebookresearch/diffkt")
 
-                groupId = "com.facebook.diffkt"
+                groupId = "com.facebook"
                 artifactId = "diffkt"
                 version = "0.0.1-DEV2"
 
