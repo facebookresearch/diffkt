@@ -80,8 +80,8 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>() {
 //          ./gradlew publish -Pversion=0.1.0-$(git rev-parse --short HEAD)
 
 
-val repositoryUsername: String by project
-val repositoryPassword: String by project
+val repositoryUsername: String? by project
+val repositoryPassword: String? by project
 val signingKey: String? by project
 val signingPassword: String? by project
 
