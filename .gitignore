@@ -18,7 +18,7 @@ __pycache__
 tutorials/.ipynb_checkpoints/
 
 # Ignore docs
-docs/
+/docs/
 
 # Ignore gpu downloads
 cpp/gpuops/*.zip
