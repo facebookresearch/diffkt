@@ -18,7 +18,7 @@ import org.diffkt.adOptimize.DTensorRoot
  * - a [ForwardTensor] for forward differentiation, or
  * - a [ReverseTensor] for reverse mode differentiation.
  */
-@DTensor
+@DTensorRoot
 @SType("S: Shape")
 interface DTensor: Differentiable<DTensor> {
 
