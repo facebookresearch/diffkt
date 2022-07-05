@@ -7,6 +7,7 @@
 
 package org.diffkt
 
+import org.diffkt.adOptimize.ToUnboxedFunction
 import shapeTyping.annotations.SType
 
 // Tensor powers
@@ -17,10 +18,12 @@ fun DTensor.pow(x: DScalar): DTensor = exp(x * ln(this))
 // a^b == e^(b ln a)
 fun DScalar.pow(x: DScalar): DScalar = exp(x * ln(this))
 
+@ToUnboxedFunction("kotlin.math.pow")
 fun DScalar.pow(x: Float): DScalar = (this as DTensor).pow(x) as DScalar
 
 fun DScalar.pow(x: Int): DScalar = (this as DTensor).pow(x.toFloat()) as DScalar
 
+@ToUnboxedFunction("kotlin.math.pow")
 fun DTensor.pow(x: Int): DTensor = this.pow(x.toFloat())
 
 @SType("S: Shape")

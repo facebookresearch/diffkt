@@ -7,12 +7,15 @@
 
 package org.diffkt
 
+import org.diffkt.adOptimize.BoxedPrimitive
+
 /**
  * A differentiable tensor of rank 0 containing a single float (a FloatTensor wrapper around a float).
  *
  *  @property value The floating point number to wrap with a FloatTensor.
  *  @constructor Creates a FloatScalar initialized to value.
  */
+@BoxedPrimitive("value")
 class FloatScalar(val value: Float) : FloatTensor(), DScalar {
     override val derivativeID: DerivativeID get() = NoDerivativeID
     override val operations: Operations

@@ -10,10 +10,12 @@ package org.diffkt.reverse
 import org.diffkt.DScalar
 import org.diffkt.gpu.GpuFloatScalar
 import org.diffkt.Operations
+import org.diffkt.adOptimize.ReverseDifferentiable
 
 /**
  * A scalar for reverse mode differentiation.
  */
+@ReverseDifferentiable("primal", "upstream", "backpropagate", "pushback", "derivativeID")
 abstract class ReverseScalar(override val primal: DScalar, derivativeID: ReverseDerivativeID) : ReverseTensor(primal, derivativeID),
     DScalar {
     override val operations: Operations

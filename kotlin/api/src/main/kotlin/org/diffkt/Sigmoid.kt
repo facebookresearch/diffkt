@@ -9,6 +9,7 @@ package org.diffkt
 
 import kotlin.math.exp
 import shapeTyping.annotations.SType
+import org.diffkt.adOptimize.ToUnboxedFunction
 
 /**
  * Compute the sigmoid for a single floating-point value.
@@ -23,6 +24,7 @@ internal fun sigmoidElem(x: Float): Float {
     }
 }
 
+@ToUnboxedFunction("org.diffkt.sigmoidElem")
 fun sigmoid(x: DScalar): DScalar {
     return x.operations.sigmoid(x) as DScalar
 }

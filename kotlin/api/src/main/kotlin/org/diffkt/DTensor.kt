@@ -8,6 +8,7 @@
 package org.diffkt
 
 import shapeTyping.annotations.SType
+import org.diffkt.adOptimize.DTensorRoot
 
 /**
  * Interface for a differentiable tensor.
@@ -17,6 +18,7 @@ import shapeTyping.annotations.SType
  * - a [ForwardTensor] for forward differentiation, or
  * - a [ReverseTensor] for reverse mode differentiation.
  */
+@DTensor
 @SType("S: Shape")
 interface DTensor: Differentiable<DTensor> {
 
