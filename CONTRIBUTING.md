@@ -20,6 +20,45 @@ If you encounter any issues, feel free to report it using GitHub issues. Please 
 4. Ensure the test suite passes.
 5. If you haven't already, complete the Contributor License Agreement ("CLA").
 
+## Deployment
+
+To deploy DiffKt to the Central Repository: 
+
+1. Create a Sontatype JIRA account at `issues.sontatype.org` 
+2. File an issue to get rights to push to `com.facebook`
+3. Install [GnuPG](https://gnupg.org) and generate GPG keys 
+
+     1. On MacOS it is recommended to use Homebrew: `brew install gnupg` 
+     2. Generate a key pair, provide a passphrase when prompted: `gpg --gen-key` 
+     3. List the key pairs and note the last 8 characters of the 40-character key ID string: `gpg --list-keys`
+     4. Move into the  _.gnugpg_ directory: `cd ./.gnugpg`
+     5. Export the secret key: `gpg --keyring secring.gpg --export-secret-keys > ~/.gnupg/`
+     6. Send the public key to the Ubuntu server, replace the `XXXXXXXXX` placeholder with the key ID or last 8 characters of the key ID: `gpg --send-keys --keyserver keyserver.ubuntu.com XXXXXXXXX`     
+
+4. In your personal _.gradle_ directory outside the project (often in directory like _/Users/thomasnield/.gradle/_) create a _gradle.properties_ file and add the following contents to it. Be sure to provide the following information and change the _signing.secretKeyRingFile_ file to your _securing.gpg_ file path. 
+
+```
+repositoryUsername=[your Sonatype JIRA username]
+repositoryPassword=[your Sonatype JIRA password]
+signing.keyId=[last 8 characters of the key ID]
+signing.password=[your passphrase for the key]
+signing.secretKeyRingFile=/Users/thomasnield/.gnupg/secring.gpg
+```
+
+5. In the _diffkt/kotlin/api/build.gradle.kts_ script, change the release version. 
+
+```
+pom { 
+...
+                version = "X.X.X"
+...
+}
+```
+
+6. In the _diffkt/kotlin/api_ directory run the publish command: ` ./gradlew clean publish`
+7. Upon success, log into [Staged Repositories](https://oss.sonatype.org/#stagingRepositories) with your Sonatype JIRA account, select the artifact you just uploaded, close it, wait a few minutes for it to process, refresh, and then click "Release."
+8. Within an hour the artifact release should be visible in [the repository](https://repo1.maven.org/maven2/com/facebook/diffkt/). 
+
 ### Contributor License Agreement ("CLA")
 
 In order to accept your pull request, we need you to submit a CLA. You only need to do this once to work on any of Meta’s open source projects.
