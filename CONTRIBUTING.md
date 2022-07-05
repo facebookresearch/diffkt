@@ -6,17 +6,13 @@ We welcome and greatly value all kinds of contributions to DiffKt. You can contr
 * Contributing examples
 * Adding documentation
 
-For contributions to ShapeTyping, please visit the ShapeTyping repository here. (TODO: link repository)
-
-TODO: Decide on contribution guidelines
+For contributions to ShapeKt, please visit the `shapekt` repository [here](https://github.com/facebookresearch/shapekt).
 
 ## Issues
 
 If you encounter any issues, feel free to report it using GitHub issues. Please ensure your description is clear and has sufficient instructions to be able to reproduce the issue.
 
 ## Pull Requests
-
-TODO: Decide on PR best practices. 
 
 1. Fork the repo and create your branch from `main`.
 2. If you've added code that should be tested, add tests.

@@ -1,0 +1,10 @@
+name: diffkt
+channels:
+  - conda-forge
+  - jetbrains
+dependencies:
+  # JetBrains
+  - jetbrains::kotlin-jupyter-kernel
+  # conda-forge
+  - jupyterlab
+  - python=3.8

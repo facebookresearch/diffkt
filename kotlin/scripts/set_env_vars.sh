@@ -23,13 +23,8 @@ fi
 
 # Set machine-dependent env vars. Extension is used for locating shared libraries
 if [ "$(uname)" = "Darwin"  ]; then
-    export ENV_NAME="DARWIN"
-    export DYLIB_EXTENSION=".dylib"
     if [ "$(echo $(sw_vers -productVersion) | cut -c1-5)" = "10.15"  ]; then
         export SDKROOT="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
         export CPLUS_INCLUDE_PATH="/usr/local/opt/gflags/include/"
     fi
-elif [ "$(expr substr $(uname -s) 1 5)" = "Linux"  ]; then
-    export ENV_NAME="LINUX"
-    export DYLIB_EXTENSION=".so"
 fi

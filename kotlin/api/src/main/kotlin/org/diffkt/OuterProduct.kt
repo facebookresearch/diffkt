@@ -16,8 +16,10 @@ import shapeTyping.annotations.SType
 @SType("S1: Shape, S2: Shape")
 @AllowUnreduced
 infix fun @SType("S1") DTensor.outerProduct(right: @SType("S2") DTensor): @SType("concat(S1, S2)") DTensor {
-    if (this.isScalar || right.isScalar)
+    if (right.isScalar)
         return this * right as DScalar
+    if (this.isScalar)
+        return right * this as DScalar
 
     val (operations, derivativeId) = commonKind(this, right)
     return operations.outerProduct(this, right, derivativeId)
