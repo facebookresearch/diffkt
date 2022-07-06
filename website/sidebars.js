@@ -78,7 +78,7 @@ module.exports = {
         {
           type: 'doc',
           id: 'framework/jit/jit',
-          label: 'Just In Time',
+          label: 'Just In Time Optimization',
         },
         {
           type: 'doc',
@@ -194,11 +194,6 @@ module.exports = {
               type: 'doc',
               id: 'tutorials/physical_systems/mass_spring_jit/mass_spring_jit',
               label: 'Mass Spring System using Just In Time Optimization',
-            },
-            {
-              type: 'doc',
-              id: 'tutorials/physical_systems/soft_sphere/soft_sphere',
-              label: 'Soft Sphere',
             },
           ],
         },

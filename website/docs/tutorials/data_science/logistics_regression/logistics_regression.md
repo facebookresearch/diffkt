@@ -9,3 +9,4 @@ automatic differentiation as the optimization algorithm to minimize the problem.
 
 :::tip Open tutorial in Github
 [Logistics Regression and Gradient Descent](https://github.com/facebookresearch/diffkt/blob/main/tutorials/logistic_regression_gradient_descent.ipynb)
+:::
