@@ -82,6 +82,11 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'framework/model/model',
+          label: 'Deep Neural Network Models',
+        },
+        {
+          type: 'doc',
           id: 'framework/shapekt/shapekt',
           label: 'ShapeKt',
         },

@@ -7,7 +7,9 @@ slug: '/overview/quick_start'
 
 ### Maven
 
-A precompiled **DiffKt** jar for a Mac is available in Maven. It has jni libraries included, so it only works on a Mac.
+A precompiled **DiffKt** jar for a Mac is available in Maven. It has jni libraries included, 
+so it only works on a Mac. This jar does not include the jni for using a GPU, so do not enable the GPU
+in the code.
 
 The current version is `0.0.1-DEV2`
 
@@ -28,3 +30,7 @@ dependencies {
 Currently, you need to checkout the repo and build it.
 
 [Ubuntu Installation](installation_ubuntu)
+
+## With a GPU
+
+Currently, you need to checkout the repo and build it.
