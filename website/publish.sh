@@ -1,8 +1,11 @@
 #!/bin/bash
 #
 current_branch=`git rev-parse --abbrev-ref HEAD`
-# cleanup gh-pages
+# save your current work
 cd ..
+git add .
+git commit -m "updated website"
+# cleanup gh-pages
 git checkout gh-pages
 [ -d "docs" ] && git rm -r docs
 git commit -m "cleaned out docs"
