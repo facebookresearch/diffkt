@@ -9,3 +9,4 @@ data. Gradient Descent using automatic differentiation from **DiffKt** is used f
 
 :::tip Open tutorial in Github
 [3D Nonlinear Regression](https://github.com/facebookresearch/diffkt/blob/main/tutorials/3d_nonlinear_regression.ipynb)
+:::

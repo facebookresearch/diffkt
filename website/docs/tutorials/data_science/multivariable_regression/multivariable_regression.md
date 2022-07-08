@@ -9,3 +9,4 @@ optimization problem for the parameter estimation, using **DiffKt** for automati
 
 :::tip Open tutorial in Github
 [Gradient Descent and Multivariable Linear Regression](https://github.com/facebookresearch/diffkt/blob/main/tutorials/multivariable_linear_regression_gradient_descent.ipynb)
+:::

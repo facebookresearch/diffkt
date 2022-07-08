@@ -10,3 +10,4 @@ optimization algorithm to minimize the problem.
 
 :::tip Open tutorial in Github
 [Linear Regression with User Defined Types](https://github.com/facebookresearch/diffkt/blob/main/tutorials/linear_regression_user_defined_types.ipynb)
+:::
