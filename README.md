@@ -61,6 +61,8 @@ Currently DiffKt building is supported on macOS as well as Ubuntu. Help is neede
 
 [Install on Ubuntu](https://github.com/facebookresearch/diffkt/blob/main/INSTALL_UBUNTU.md)
 
+To build DiffKt from source files for UBUNTU, read INSTALL_UBUNTU.md
+
 #### Kotlin Examples
 
 Navigate to the `kotlin` folder from the repository root.

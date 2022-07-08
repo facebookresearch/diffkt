@@ -6,9 +6,7 @@ We welcome and greatly value all kinds of contributions to DiffKt. You can contr
 * Contributing examples
 * Adding documentation
 
-For contributions to ShapeTyping, please visit the ShapeTyping repository here. (TODO: link repository)
-
-TODO: Decide on contribution guidelines
+For contributions to ShapeKt, please visit the `shapekt` repository [here](https://github.com/facebookresearch/shapekt).
 
 
 ## Operating System Support 
