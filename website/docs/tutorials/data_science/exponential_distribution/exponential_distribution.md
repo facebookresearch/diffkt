@@ -11,3 +11,4 @@ is a gradient descent algorithm, which uses **DiffKT** for automatic differentia
 
 :::tip Open tutorial in Github
 [Exponential Distribution and Gradient Descent](https://github.com/facebookresearch/diffkt/blob/main/tutorials/exponential_distribution_mle_gradient_descent.ipynb)
+:::

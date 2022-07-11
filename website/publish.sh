@@ -1,8 +1,18 @@
 #!/bin/bash
+
 #
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+#
+# This source code is licensed under the MIT license found in the
+# LICENSE file in the root directory of this source tree.
+#
+
 current_branch=`git rev-parse --abbrev-ref HEAD`
-# cleanup gh-pages
+# save your current work
 cd ..
+git add .
+git commit -m "updated website"
+# cleanup gh-pages
 git checkout gh-pages
 [ -d "docs" ] && git rm -r docs
 git commit -m "cleaned out docs"

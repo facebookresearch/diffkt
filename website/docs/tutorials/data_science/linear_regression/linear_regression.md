@@ -10,3 +10,4 @@ optimization algorithm to minimize the problem.
 
 :::tip Open tutorial in Github
 [Gradient Descent and Linear Regression](https://github.com/facebookresearch/diffkt/blob/main/tutorials/linear_regression_gradient_descent.ipynb)
+:::

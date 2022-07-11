@@ -11,3 +11,4 @@ the derivatives are calculated from a function over a tensor.
 
 :::tip Open tutorial in Github
 [Normal Distribution and Gradient Descent](https://github.com/facebookresearch/diffkt/blob/main/tutorials/normal_mle_gradient_descent.ipynb)
+:::

@@ -10,3 +10,4 @@ calculate the derivative of a scalar function in a gradient descent algorithm.
 
 :::tip Open tutorial in Github
 [Gradient Descent on a Simple Parabola](https://github.com/facebookresearch/diffkt/blob/main/tutorials/simple_parabola_gradient_descent.ipynb)
+:::

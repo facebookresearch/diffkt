@@ -14,3 +14,4 @@ weight and bias layers, and leave out the messiness of solving derivatives by ha
 
 :::tip Open tutorial in Github
 [Neural Networks and Stochastic Gradient Descent](https://github.com/facebookresearch/diffkt/blob/main/tutorials/neural_network_sgd.ipynb)
+:::

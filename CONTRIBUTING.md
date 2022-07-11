@@ -8,11 +8,22 @@ We welcome and greatly value all kinds of contributions to DiffKt. You can contr
 
 For contributions to ShapeKt, please visit the `shapekt` repository [here](https://github.com/facebookresearch/shapekt).
 
+
+## Operating System Support 
+
+Currently DiffKt build is supported on macOS as well as Ubuntu. Help is needed to support building on Windows. 
+
+[Install on Mac](https://github.com/facebookresearch/diffkt/blob/main/INSTALL_MAC.md)
+
+[Install on Ubuntu](https://github.com/facebookresearch/diffkt/blob/main/INSTALL_UBUNTU.md)
+
 ## Issues
 
 If you encounter any issues, feel free to report it using GitHub issues. Please ensure your description is clear and has sufficient instructions to be able to reproduce the issue.
 
 ## Pull Requests
+
+Please follow these practices when proposing code changes and creating pull requests. 
 
 1. Fork the repo and create your branch from `main`.
 2. If you've added code that should be tested, add tests.
@@ -50,7 +61,7 @@ signing.secretKeyRingFile=/Users/thomasnield/.gnupg/secring.gpg
 ```
 pom { 
 ...
-                version = "X.X.X"
+      version = "X.X.X"
 ...
 }
 ```

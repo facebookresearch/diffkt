@@ -12,3 +12,4 @@ automatically differentiate the energy equations in the solving of the ODEs.
 
 :::tip Open tutorial in Github
 [Mass Spring System](https://github.com/facebookresearch/diffkt/blob/main/tutorials/mass_spring.ipynb)
+:::
