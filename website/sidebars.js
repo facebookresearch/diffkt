@@ -62,23 +62,33 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'framework/api/api',
-          label: 'API',
+          id: 'framework/tensors/tensors',
+          label: 'Tensors',
+        },
+        {
+          type: 'doc',
+          id: 'framework/user_defined_types/user_defined_types',
+          label: 'User Defined Types',
+        },
+        {
+          type: 'doc',
+          id: 'framework/vector_jacobian/vector_jacobian',
+          label: 'Vector-Jacobian',
+        },
+        {
+          type: 'doc',
+          id: 'framework/jit/jit',
+          label: 'Just In Time Optimization',
+        },
+        {
+          type: 'doc',
+          id: 'framework/model/model',
+          label: 'Deep Neural Network Models',
         },
         {
           type: 'doc',
           id: 'framework/shapekt/shapekt',
           label: 'ShapeKt',
-        },
-        {
-          type: 'doc',
-          id: 'framework/data_science/data_science',
-          label: 'Data Science',
-        },
-        {
-          type: 'doc',
-          id: 'framework/physical_systems/physical_systems',
-          label: 'Physical Systems',
         },
       ],
     },
@@ -189,11 +199,6 @@ module.exports = {
               type: 'doc',
               id: 'tutorials/physical_systems/mass_spring_jit/mass_spring_jit',
               label: 'Mass Spring System using Just In Time Optimization',
-            },
-            {
-              type: 'doc',
-              id: 'tutorials/physical_systems/soft_sphere/soft_sphere',
-              label: 'Soft Sphere',
             },
           ],
         },

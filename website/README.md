@@ -7,11 +7,22 @@ the branch gh-pages from the main repo.
 
 ### Installation
 1. First install nodejs
+
    https://nodejs.org/en/
 
-2. Install Docusaurus
+2. The Docusaurus website is already intialized but you need to reinstall components that are not tracked by git.
+
+   cd diffkt/website
+   npm install
+
+2.1 If you need to reinstall Docusaurus from scratch, the below command will do it but it will 
+    overwrite some of the DiffKt website files. After running this command you need to revert all the changed
+    files back to the last commit.
+
    cd diffkt/website
    npx create-docusaurus@latest my-website facebook
+   git add . --dry-run           To see the files that were changed
+   git checkout -- <file_name>             For each file changed
 
 3. Install Latex
    cd diffkt/website

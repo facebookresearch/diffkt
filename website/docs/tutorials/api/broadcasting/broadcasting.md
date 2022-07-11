@@ -12,3 +12,4 @@ Broadcasting is used in Python and **DiffKt's** implementation is similar.<br/>
 
 :::tip Open tutorial in Github
 [Broadcasting](https://github.com/facebookresearch/diffkt/blob/main/tutorials/broadcasting.ipynb)
+:::
