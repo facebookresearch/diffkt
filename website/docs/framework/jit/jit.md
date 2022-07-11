@@ -29,5 +29,5 @@ Don't use mutable variables from an enclosing scope. If they are var variables
 (i.e. they don't change) that is OK, but if the value might change from call to call 
 of the jitted function, they should be explicit inputs to the function.
 
-Don't have side-effects in the jitted function; it should be a pure function. 
+Don't have side-effects in the jitted function; it should be a pure function.
 That means no print statements, random number generation, or taking the time of day.
