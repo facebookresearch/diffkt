@@ -61,7 +61,7 @@ signing.secretKeyRingFile=/Users/thomasnield/.gnupg/secring.gpg
 ```
 pom { 
 ...
-     version = "X.X.X"
+      version = "X.X.X"
 ...
 }
 ```

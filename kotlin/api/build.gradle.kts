@@ -7,10 +7,12 @@
 
 import org.jetbrains.dokka.gradle.DokkaTask
 
+
 plugins {
     `maven-publish`
     id("shapeKt") version "1.0"
     id("org.jetbrains.dokka") version "1.6.0"
+    signing
 }
 
 repositories {
@@ -37,6 +39,22 @@ dependencies {
     testImplementation(project(":testutils"))
 }
 
+//sources
+val sourcesJar by tasks.register<Jar>("sourcesJar") {
+    group = "build"
+    description = "Assembles a jar archive containing the main sources."
+    archiveClassifier.set("sources")
+
+    from(sourceSets["main"].allSource)
+    from("LICENSE")
+}
+
+//documentation
+val javadocJar by tasks.creating(Jar::class) {
+    archiveClassifier.set("javadoc")
+    from("$buildDir/javadoc")
+}
+
 tasks.register<Exec>("buildExternalJni") {
     commandLine("../../cpp/ops/scripts/build.sh")
 }
@@ -60,24 +78,77 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>() {
 //          export GITHUB_USERNAME=${{YOUR USRNAME}}
 //          export GITHUB_ACCESS_TOKEN=${{ACCESS TOKEN WITH PACKAGE WRITE ACCESS}}
 //          ./gradlew publish -Pversion=0.1.0-$(git rev-parse --short HEAD)
+
+
+val repositoryUsername: String? by project
+val repositoryPassword: String? by project
+val signingKey: String? by project
+val signingPassword: String? by project
+
+
+fun isRelease() = true // System.getenv("VERSION_NAME") != null
+
 publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            groupId = "org.diffkt"
-            artifactId = "api"
-            version = project.version.toString()
-            from(components["java"])
-        }
-    }
     repositories {
         maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/facebookresearch/diffkt")
+            val releasesRepoUrl = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+            val snapshotsRepoUrl = uri("https://oss.sonatype.org/content/repositories/snapshots/")
+            name = "deploy"
+            url = if (isRelease()) releasesRepoUrl else snapshotsRepoUrl
             credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
+                username = System.getenv("repositoryUsername") ?: repositoryUsername
+                password = System.getenv("repositoryPassword") ?: repositoryPassword
             }
         }
+    }
+
+    publications {
+        create<MavenPublication>("Diffkt") {
+            //from(components["javaPlatform"])
+            from(components["java"])
+
+            artifact(sourcesJar)
+            artifact(javadocJar)
+
+            pom {
+                name.set("DiffKt")
+                description.set("Automatic differentiation in Kotlin")
+                url.set("https://github.com/facebookresearch/diffkt")
+
+                groupId = "com.facebook"
+                artifactId = "diffkt"
+                version = "0.0.1-DEV2"
+
+                scm {
+                    connection.set("scm:git:https://github.com/facebookresearch/diffkt")
+                    developerConnection.set("scm:git:https://github.com/thomasnield/")
+                    url.set("https://github.com/facebookresearch/diffkt")
+                }
+
+                licenses {
+                    license {
+                        name.set("MIT-1.0")
+                        url.set("https://opensource.org/licenses/MIT")
+                    }
+                }
+
+                developers {
+                    developer {
+                        id.set("thomasnield")
+                        name.set("Thomas Nield")
+                        email.set("thomasnield@live.com")
+                    }
+                }
+            }
+        }
+    }
+}
+
+signing {
+    val publications: PublicationContainer = (extensions.getByName("publishing") as PublishingExtension).publications
+
+    if (isRelease()) {
+        sign(publications)
     }
 }
 
@@ -85,8 +156,8 @@ apply(plugin="org.jetbrains.dokka")
 tasks.withType<DokkaTask>().configureEach{
     outputDirectory.set(rootDir.resolve("../docs/api"))
     dokkaSourceSets {
-      configureEach {
-          samples.from(rootDir.resolve("samples/src/main/kotlin"))
-      }
+        configureEach {
+            samples.from(rootDir.resolve("samples/src/main/kotlin"))
+        }
     }
 }
