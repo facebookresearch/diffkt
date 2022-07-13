@@ -81,7 +81,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>() {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            groupId = "org.diffkt"
+            groupId = "org.diffkt.adopt"
             artifactId = "api"
             version = project.version.toString()
             from(components["java"])
