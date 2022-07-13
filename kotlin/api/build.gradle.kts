@@ -10,6 +10,7 @@ import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
     `maven-publish`
+    id("meta-diffkt-differentiable-api-preprocessor") version "0.0.1.3"
     id("shapeKt") version "1.0"
     id("org.jetbrains.dokka") version "1.6.0"
     signing
@@ -28,6 +29,23 @@ repositories {
     }
     mavenLocal()
     mavenCentral()
+}
+
+differentiableApiPreprocessor {
+    this.stackImplAnnotation("org.diffkt.adOptimize.StackImpl")
+    this.boxedPrimitive("org.diffkt.adOptimize.BoxedPrimitive")
+    this.scalarRoot("org.diffkt.adOptimize.ScalarRoot")
+    this.primalAndPullbackAnnotation("org.diffkt.adOptimize.PrimalAndPullback")
+    this.reverseAnnotation("org.diffkt.adOptimize.ReverseDifferentiable")
+    this.unboxedFunction("org.diffkt.adOptimize.ToUnboxedFunction")
+    val userDir = System.getProperty("user.dir")
+    val pathToResources = "$userDir/api/src/main/resources"
+    this.resourcesPath(pathToResources)
+    this.toReverseAnnotation("org.diffkt.adOptimize.ToReverse")
+    this.dTensorAnnotation("org.diffkt.adOptimize.DTensorRoot")
+    this.reverseScalarOperationsAnnotation("org.diffkt.adOptimize.ReverseScalarOperations")
+    this.scalarNoop("org.diffkt.adOptimize.ScalarNoop")
+    this.forwardDifferentiable("org.diffkt.adOptimize.ForwardDifferentiable")
 }
 
 dependencies {

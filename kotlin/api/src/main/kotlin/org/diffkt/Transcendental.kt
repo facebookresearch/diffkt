@@ -7,23 +7,29 @@
 
 package org.diffkt
 
+import org.diffkt.adOptimize.ToUnboxedFunction
+
 // ==========
 // Transcendentals
 // ==========
 
 // Trig
+@ToUnboxedFunction("kotlin.math.sin")
 fun sin(x: DScalar): DScalar {
     return x.operations.sin(x) as DScalar
 }
 
+@ToUnboxedFunction("kotlin.math.sin")
 fun sin(x: DTensor): DTensor {
     return x.operations.sin(x)
 }
 
+@ToUnboxedFunction("kotlin.math.cos")
 fun cos(x: DScalar): DScalar {
     return x.operations.cos(x) as DScalar
 }
 
+@ToUnboxedFunction("kotlin.math.cos")
 fun cos(x: DTensor): DTensor {
     return x.operations.cos(x)
 }
@@ -45,6 +51,7 @@ fun atan(x: DTensor): DTensor {
     return x.operations.atan(x)
 }
 
+@ToUnboxedFunction("kotlin.math.exp")
 fun exp(x: DScalar): DScalar {
     return x.operations.exp(x) as DScalar
 }
@@ -53,10 +60,12 @@ fun exp(x: DTensor): DTensor {
     return x.operations.exp(x)
 }
 
+@ToUnboxedFunction("kotlin.math.ln")
 fun ln(x: DScalar): DScalar {
     return x.operations.ln(x) as DScalar
 }
 
+@ToUnboxedFunction("kotlin.math.ln")
 fun ln(x: DTensor): DTensor {
     return x.operations.ln(x)
 }

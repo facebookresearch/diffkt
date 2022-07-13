@@ -10,6 +10,7 @@ package org.diffkt
 import org.diffkt.reverse.ReverseDerivativeID
 import org.diffkt.reverse.ReverseScalar
 import org.diffkt.reverse.ReverseTensor
+import org.diffkt.adOptimize.PrimalAndPullback
 
 // ********** General Reverse Derivative of Univariate Functions **********
 
@@ -54,6 +55,7 @@ fun vjp(
 ) = primalAndVjp(x, vf, f).second
 
 // Also known as VJP (vector-Jacobian product)
+@PrimalAndPullback
 internal fun primalAndPullback(
     x: DTensor,
     f: (x: DTensor) -> DTensor

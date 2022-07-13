@@ -11,7 +11,9 @@ import org.diffkt.*
 import org.diffkt.model.BatchNormResult
 import org.diffkt.random.RandomKey
 import shapeTyping.annotations.AllowUnreduced
+import org.diffkt.adOptimize.ReverseScalarOperations
 
+@ReverseScalarOperations
 @AllowUnreduced
 internal open class ReverseScalarOperationsImpl: Operations {
     override val name get() = "ReverseScalar"

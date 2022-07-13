@@ -9,6 +9,7 @@ package org.diffkt
 
 import org.diffkt.external.ExternalLib
 import org.diffkt.reverse.ReverseTensor
+import org.diffkt.adOptimize.ScalarNoop
 
 internal fun identityGradientofSameKind(x: DTensor, halfShape: Shape = x.shape): DTensor {
     return x.operations.identityGradientOfSameKind(x, halfShape)
@@ -82,6 +83,7 @@ val IntArray.product get() = run {
     product
 }
 
+@ScalarNoop
 fun DTensor.expandToTangent(tangent: DTensor): DTensor {
     if (this.shape == tangent.shape) return this
     val ones = Shape(IntArray(tangent.shape.rank - this.shape.rank) { 1 })

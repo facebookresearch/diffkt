@@ -8,6 +8,7 @@
 package org.diffkt
 
 import shapeTyping.annotations.SType
+import org.diffkt.adOptimize.ScalarRoot
 
 /**
  * A differentiable scalar (float).
@@ -16,6 +17,7 @@ import shapeTyping.annotations.SType
  * - a [ForwardScalar] for forward differentiation with a [DScalar] primal value, and a [DTensor] tangent, or
  * - a [ReverseScalar] for reverse mode differentiation.
  */
+@ScalarRoot
 interface DScalar : @SType("[]") DTensor {
 
     /**

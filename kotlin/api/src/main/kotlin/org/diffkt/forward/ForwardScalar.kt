@@ -10,10 +10,12 @@ package org.diffkt.forward
 import org.diffkt.DScalar
 import org.diffkt.DTensor
 import org.diffkt.Operations
+import org.diffkt.adOptimize.ForwardDifferentiable
 
 /**
  * A differentiable dual scalar (for forward derivatives)
  */
+@ForwardDifferentiable("tangent")
 open class ForwardScalar protected constructor(
     primal: DScalar,
     derivativeID: ForwardDerivativeID
