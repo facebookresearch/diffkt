@@ -29,7 +29,5 @@ pluginManagement {
                 password = System.getenv("GITHUB_TOKEN")
             }
         }
-        maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/bootstrap")
-        mavenLocal()
     }
 }
